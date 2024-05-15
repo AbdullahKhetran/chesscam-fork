@@ -37,6 +37,9 @@ const VideoAndSidebar = ({ mode }: { mode: Mode }) => {
   const [study, setStudy] = useState<Study | null>(null);
   const [boardNumber, setBoardNumber] = useState<number>(-1)
   const [digital, setDigital] = useState<boolean>(false);
+
+  const [whiteName, setWhiteName] = useState()
+  const [blackName, setBlackName] = useState()
   
   const videoRef = useRef<any>(null);
   const playingRef = useRef<boolean>(playing);
@@ -49,6 +52,8 @@ const VideoAndSidebar = ({ mode }: { mode: Mode }) => {
       return;
     }
     const broadcastPgn = [
+      `[White "${whiteName}"]`,
+      `[Black "${blackName}"]`,
       `[Result "*"]`,
       `[FEN "${START_FEN}"]`,
       `[Board "${boardNumber}"]`,
@@ -92,7 +97,9 @@ const VideoAndSidebar = ({ mode }: { mode: Mode }) => {
     "sidebarRef": sidebarRef,
     "cornersRef": cornersRef,
     "playingRef": playingRef,
-    "mode": mode
+    "mode": mode,
+    "setWhiteName": setWhiteName,
+    "setBlackName": setBlackName,
   }
   const Sidebar = () => {
     switch(mode) {

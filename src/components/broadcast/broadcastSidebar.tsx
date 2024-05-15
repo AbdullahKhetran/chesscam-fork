@@ -4,14 +4,20 @@ import BoardNumberInput from "./boardNumberInput";
 import SetBoard from "./SetBoard";
 
 const BroadcastSidebar = ({ piecesModelRef, xcornersModelRef, videoRef, canvasRef, sidebarRef, 
-  playing, setPlaying, text, setText, digital, setDigital, study, setStudy, setBoardNumber }: {
+  playing, setPlaying, text, setText, digital, setDigital, study, setStudy, setBoardNumber, setWhiteName, setBlackName }: {
   piecesModelRef: any, xcornersModelRef: any, videoRef: any, canvasRef: any, sidebarRef: any,
   playing: boolean, setPlaying: SetBoolean, 
   text: string[], setText: SetStringArray,
   digital: boolean, setDigital: SetBoolean, 
   study: Study | null, setStudy: SetStudy,
-  setBoardNumber: SetNumber
-}) => {
+  setBoardNumber: SetNumber,
+  setWhiteName:any, setBlackName: any}) => {
+
+
+  const props = {
+    "setWhiteName": setWhiteName,
+    "setBlackName": setBlackName,
+  }
 
   return (
     <Sidebar sidebarRef={sidebarRef} >
@@ -35,7 +41,7 @@ const BroadcastSidebar = ({ piecesModelRef, xcornersModelRef, videoRef, canvasRe
         <BoardNumberInput setBoardNumber={setBoardNumber} />
       </li>
 
-      <SetBoard />
+      <SetBoard {...props} />
       
       <li className="border-top"></li>
       <li className="my-1">
