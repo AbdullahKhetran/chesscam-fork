@@ -1,6 +1,7 @@
 import { Display, CornersButton, HomeButton, PgnButton, Sidebar, DigitalButton, RecordButton, StopButton, StudyButton, DeviceButton } from "../common";
 import { SetBoolean, SetNumber, SetStringArray, SetStudy, Study } from "../../types";
 import BoardNumberInput from "./boardNumberInput";
+import SetBoard from "./SetBoard";
 
 const BroadcastSidebar = ({ piecesModelRef, xcornersModelRef, videoRef, canvasRef, sidebarRef, 
   playing, setPlaying, text, setText, digital, setDigital, study, setStudy, setBoardNumber }: {
@@ -33,6 +34,9 @@ const BroadcastSidebar = ({ piecesModelRef, xcornersModelRef, videoRef, canvasRe
       <li className="my-1">
         <BoardNumberInput setBoardNumber={setBoardNumber} />
       </li>
+
+      <SetBoard />
+      
       <li className="border-top"></li>
       <li className="my-1">
         <Display text={text} />
